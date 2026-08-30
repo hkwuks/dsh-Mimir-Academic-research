@@ -343,11 +343,15 @@ experiments → discussion → related work):
 
 1. **Mask LaTeX first** — protect whatever must never change before touching
    a paragraph. Replace each formula/ref/citation with a placeholder:
-   \`$...$\`, \`$$...$$\`, \`\\begin{name}...\\end{name}\` (matching begin/end
-   pair, nesting allowed), \`\\cite{...}\`, \`\\ref{...}\`, \`\\label{...}\`,
-   \`\\eqref{...}\`, and any \\command{...} that carries a number or key.
-   Use stable markers like \`[MATH_1]\`, \`[CITE_7]\`. Keep them untouched
-   during rewriting.
+   \`$...$\`, \`$$...$$\`, and math environments (\`\\begin{align}...\\end{align}\`
+   and kin) become \`[MATH_1]\`; \`\\cite{...}\`, \`\\ref{...}\`, \`\\label{...}\`,
+   \`\\eqref{...}\`, and any \\command{...} that carries a number or key become
+   \`[CITE_7]\`-style markers. Treat whole non-prose environments as single
+   blocks: \`\\begin{table}...\\end{table}\`, \`\\begin{figure}...\\end{figure}\`,
+   \`\\begin{algorithm}...\\end{algorithm}\` each become one \`[TABLE_1]\` /
+   \`[FIGURE_1]\` / \`[ALGO_1]\` placeholder — inner tabular, tikzpicture, and
+   pseudocode are never rewritten, only the \`\\caption{...}\` inside may be
+   polished. Keep every placeholder byte-identical during rewriting.
 2. **Detect the language** per paragraph (zh vs en by dominant script). Apply
    the matching pattern set below — the zh set mainly hits Chinese prose, the
    en set covers English sentences whatever the paper's primary language.
@@ -448,6 +452,8 @@ Priority, most impact first:
   "--" included) unless the paper's own voice uses them; replace with comma,
   period, or colon. In an academic draft the paper's existing prose is the
   sample — match its dash habit, don't ban one lone dash in a quotation.
+  A single §4-like tell alone is not proof; flag dashes only when stacked
+  with other patterns.
 - **§15/§16 Bold abuse and bold mini-heading lists** — un-bold; inline the list.
 - **§23 Filler** — in order to / due to the fact that / at this point in
   time / has the ability to / it is important to note that → because / now /
@@ -492,11 +498,14 @@ Before returning the rewrite, check the whole \`main.tex\` scope:
 
 ## 噪声保留原则
 
-不要把每段都改得风格一致。人类写作本身有波动：
+不要把每段都改得风格一致——人类写作本身有波动，去味的目标是「像人写的」，
+不是「零 AI 特征」：
 
-- 每千字保留 2–3 处轻微 AI 特征作为自然噪声（首选轻度双项并列、程度较轻的过渡词）。
-- 不保留：「此案例印证了」「具有重要意义」、任何模糊归因。
-- 成语/口语自然出现 2–3 处/千字即可，不堆砌。
+- 只在确实自然处保留轻微 AI 特征（轻度双项并列、程度较轻的过渡词），并以此为
+  度校准全文，而不是刻意制造统一腔调。
+- 不保留：「此案例印证了」「具有重要意义」、任何模糊归因——这些是 HC-2/6/7
+  命中的硬伤，必须清掉。
+- 成语/口语在叙述里自然出现即可，不堆砌。
 
 ## 不要误报（false positives）
 
