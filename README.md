@@ -81,7 +81,9 @@ All keys are optional; set them in the profile's `cordis.patch.yml` (full commen
 
 ## Changelog
 
-- **Unreleased (`dev`)** — Ledger view (成长时间线 + 进展报告) by [@EriXPsy](https://github.com/EriXPsy) ([#115](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/115)); SearXNG web search by [@hkwuks](https://github.com/hkwuks) ([#114](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/114)); bundled sxng-cli + one-command SearXNG setup; Meetings AI illustrations; self-activating `dsh.bundle`
+- **Unreleased (`dev`)** — Ledger view (成长时间线 + 进展报告) by [@EriXPsy](https://github.com/EriXPsy) ([#115](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/115)); `research-paper-deai` bilingual de-AI skill (synthesized from MIT-licensed aigc-humanizer-zh + blader/humanizer); Meetings AI illustrations; self-activating `dsh.bundle`
+- **0.15.0** — SearXNG web search by [@hkwuks](https://github.com/hkwuks) ([#122](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/122)): sxng-cli config panel (SxngConfig) in the Library web tab, agent search routed through the sxng skill; local LaTeX project import by [@1692775560](https://github.com/1692775560); tolerant project args + PDF fullscreen portal by [@Nick](https://github.com/Nick) ([#120](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/120))
+- **0.14.0** — SearXNG web search by [@hkwuks](https://github.com/hkwuks) ([#114](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/114)): `web_search` tool + Library web-source tab; bundled sxng-cli + one-command SearXNG setup
 - **0.13.0** — figure-by-figure meeting decks from real paper PDFs, `meeting_deck` agent tool, academic-Group-meeting-skills pipeline integration
 - **0.12.0** — Meetings tab (group-meeting PPT), `research-meeting-deck` skill
 - **0.11.0** — single-package install: the workbench ships inside `dsh-mimir` itself

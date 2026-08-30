@@ -70,7 +70,7 @@ dsh web                                          # 然后打开 http://127.0.0.1
 | `search.command` | `auto` | Web 搜索：`auto` 用 PATH 上的 `sxng` 或随包副本 |
 | `reviewer.maxRounds` | `3` | 每个项目的评审轮次预算 |
 | `backup.enabled` / `intervalMinutes` / `keep` | `true` / `60` / `24` | 定时 wiki 快照 |
-| `skills.enabled` | `true` | 注册九个内置科研技能 |
+| `skills.enabled` | `true` | 注册十个内置科研技能（含 `research-paper-deai` 去 AI 味） |
 
 ## 故障排查
 
@@ -81,7 +81,9 @@ dsh web                                          # 然后打开 http://127.0.0.1
 
 ## 更新日志
 
-- **未发布（`dev`）**——记录视图（成长时间线 + 进展报告），[@EriXPsy](https://github.com/EriXPsy) 贡献（[#115](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/115)）；SearXNG Web 搜索，[@hkwuks](https://github.com/hkwuks) 贡献（[#114](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/114)）；sxng-cli 随包 + 一键 SearXNG 脚本；组会 AI 配图；`dsh.bundle` 自激活
+- **未发布（`dev`）**——记录视图（成长时间线 + 进展报告），[@EriXPsy](https://github.com/EriXPsy) 贡献（[#115](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/115)）；`research-paper-deai` 中英双语去 AI 味技能（融合 MIT 协议的 aigc-humanizer-zh 与 blader/humanizer）；组会 AI 配图；`dsh.bundle` 自激活
+- **0.15.0**——SearXNG Web 搜索增强，[@hkwuks](https://github.com/hkwuks) 贡献（[#122](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/122)）：sxng-cli 配置面板（SxngConfig）、Agent 搜索经 sxng skill 引导；本地 LaTeX 项目导入，[@1692775560](https://github.com/1692775560) 贡献；自然语言项目参数 + PDF 全屏弹窗，[@Nick](https://github.com/Nick) 贡献（[#120](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/120)）
+- **0.14.0**——SearXNG Web 搜索，[@hkwuks](https://github.com/hkwuks) 贡献（[#114](https://github.com/1692775560/dsh-Mimir-Academic-research/pull/114)）：`web_search` 工具 + Library Web 搜索源；sxng-cli 随包 + 一键 SearXNG 脚本
 - **0.13.0**——组会 PPT 支持论文原图逐图页、`meeting_deck` agent 工具、集成 academic-Group-meeting-skills 流水线
 - **0.12.0**——组会视图（一键组会 PPT）、`research-meeting-deck` 技能
 - **0.11.0**——单包安装：工作台直接随 `dsh-mimir` 发布
